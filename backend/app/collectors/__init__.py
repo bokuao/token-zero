@@ -4,9 +4,10 @@ To add a new provider, just create a file + register here.
 """
 
 from app.collectors.openrouter import OpenRouterCollector
+from app.collectors.groq import GroqCollector
 
 REGISTRY = {
     "openrouter": OpenRouterCollector,
-    # "groq": GroqCollector,        # nanti tinggal uncomment
+    "groq": GroqCollector,
     # "gemini": GeminiCollector,    # import + register
 }
