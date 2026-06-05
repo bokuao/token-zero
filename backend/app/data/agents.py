@@ -1,0 +1,96 @@
+"""Static agent config — renderer support + platform paths. Research-verified."""
+
+AGENTS = {
+    "cline": {
+        "name": "Cline",
+        "logo_url": "https://cdn.simpleicons.org/cline",
+        "config_path": None,
+        "paths": {
+            "windows": "VS Code Settings → search 'cline'",
+            "mac": "VS Code Settings → search 'cline'",
+            "linux": "VS Code Settings → search 'cline'",
+        },
+        "format": "ui",
+        "key_placeholder": "YOUR_API_KEY",
+        "docs_url": "https://docs.cline.bot",
+        "native_providers": ["openrouter"],
+    },
+    "opencode": {
+        "name": "opencode",
+        "config_path": "opencode.json",
+        "paths": {
+            "windows": "%USERPROFILE%\\.config\\opencode\\opencode.json",
+            "mac": "~/.config/opencode/opencode.json",
+            "linux": "~/.config/opencode/opencode.json",
+        },
+        "format": "json",
+        "key_placeholder": "{env:OPENROUTER_API_KEY}",
+        "docs_url": "https://opencode.ai",
+        "native_providers": ["openrouter"],
+    },
+    "hermes": {
+        "name": "Hermes Agent",
+        "config_path": "config.yaml",
+        "paths": {
+            "windows": "%USERPROFILE%\\.hermes\\config.yaml",
+            "mac": "~/.hermes/config.yaml",
+            "linux": "~/.hermes/config.yaml",
+        },
+        "format": "yaml",
+        "key_placeholder": "YOUR_API_KEY",
+        "docs_url": "https://hermes-agent.nousresearch.com",
+        "native_providers": ["openrouter"],
+    },
+    "openclaw": {
+        "name": "OpenClaw",
+        "config_path": "openclaw.json5",
+        "paths": {
+            "windows": "%USERPROFILE%\\.config\\openclaw\\openclaw.json5",
+            "mac": "~/.config/openclaw/openclaw.json5",
+            "linux": "~/.config/openclaw/openclaw.json5",
+        },
+        "format": "json5",
+        "key_placeholder": "${OPENROUTER_API_KEY}",
+        "docs_url": "https://openclaw.ai",
+        "native_providers": ["openrouter"],
+    },
+    "pi": {
+        "name": "Pi",
+        "config_path": "models.json",
+        "paths": {
+            "windows": "%USERPROFILE%\\.pi\\agent\\models.json",
+            "mac": "~/.pi/agent/models.json",
+            "linux": "~/.pi/agent/models.json",
+        },
+        "format": "json",
+        "key_placeholder": "$OPENROUTER_API_KEY",
+        "docs_url": "https://pi.dev",
+        "native_providers": ["openrouter"],
+    },
+    "roocode": {
+        "name": "RooCode",
+        "config_path": "roo-code-settings.json",
+        "paths": {
+            "windows": "VS Code → Ctrl+Shift+P → 'RooCode: Import Settings'",
+            "mac": "VS Code → Cmd+Shift+P → 'RooCode: Import Settings'",
+            "linux": "VS Code → Ctrl+Shift+P → 'RooCode: Import Settings'",
+        },
+        "format": "json",
+        "key_placeholder": "YOUR_OPENROUTER_API_KEY",
+        "docs_url": "https://docs.roocode.com",
+        "native_providers": ["openrouter"],
+    },
+    "kilo": {
+        "name": "Kilo Code",
+        "config_path": "kilo.jsonc",
+        "paths": {
+            "windows": "%USERPROFILE%\\.config\\kilo\\kilo.jsonc",
+            "mac": "~/.config/kilo/kilo.jsonc",
+            "linux": "~/.config/kilo/kilo.jsonc",
+        },
+        "format": "json",
+        "key_placeholder": "{env:OPENROUTER_API_KEY}",
+        "docs_url": "https://kilo.ai",
+        "native_providers": ["openrouter"],
+    },
+}

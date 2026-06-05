@@ -1,0 +1,11 @@
+# Env
+.env
+
+# SOPS private key — JANGAN di-commit!
+keys.age
+
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.venv/
