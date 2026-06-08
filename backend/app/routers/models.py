@@ -76,7 +76,8 @@ def get_model(model_id: int):
     supabase = get_supabase()
     result = (
         supabase.table("t0_models")
-        .select("*, t0_providers!inner(id, name)")
+        .select("id, model_id, display_name, description, context_length, max_output, "
+                "capabilities, input_modalities, rate_limits, provider_id")
         .eq("id", model_id)
         .execute()
     )
@@ -86,11 +87,7 @@ def get_model(model_id: int):
 
     m = result.data[0]
     provider_id = m["provider_id"]
-    provider_name = (
-        m["t0_providers"]["name"]
-        if isinstance(m.get("t0_providers"), dict)
-        else ""
-    )
+    pconfig = PROVIDERS.get(provider_id, {})
     return {
         "id": m["id"],
         "model_id": m["model_id"],
@@ -103,7 +100,7 @@ def get_model(model_id: int):
         "rate_limits": _fmt_rate(m.get("rate_limits")),
         "provider": {
             "id": provider_id,
-            "name": provider_name,
-            "base_url": PROVIDERS.get(provider_id, {}).get("base_url", ""),
+            "name": pconfig.get("name", ""),
+            "base_url": pconfig.get("base_url", ""),
         },
     }
