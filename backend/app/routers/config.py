@@ -39,8 +39,9 @@ def get_config(agent_id: str, model_id: int):
     # Get provider config
     pconfig = PROVIDERS.get(provider_id, {})
     base_url = pconfig.get("base_url", "")
+    provider_name = pconfig.get("name", provider_id)
 
-    filename, content = renderer(base_url, model["model_id"], agent["key_placeholder"])
+    filename, content = renderer(provider_id, provider_name, base_url, model["model_id"], agent["key_placeholder"])
 
     return {
         "filename": filename,
